@@ -4,6 +4,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   margin: 70px 0;
+  padding-top: 20px;
 }
 
 
@@ -53,8 +54,18 @@ body {
 }
 
 .message.system {
+  font-size: 12px;
   font-style: italic;
-  padding: 5px 20px;
+  line-height: 1.5em;
+  width: 15%;
+  padding: 0 50px;
+
+  p {
+    background-color: tomato;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: #fff;
+  }
 }
 
 .message-content,
@@ -79,7 +90,7 @@ body {
 }
 
 .message-username {
-  width: 200px;
+  width: 10%;
   font-weight: 700;
 }
 

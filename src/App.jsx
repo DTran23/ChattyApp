@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: 'Anonymous', 
+      currentUser: "", 
       messages: [],
       count: 0,
       color: "#2c3e50",
@@ -33,7 +33,7 @@ class App extends Component {
           this.setState({messages})
         break;
         case "clientCount":
-          this.setState({count: data.count});
+          this.setState({currentUser: data.currentUser, count: data.count, messages});
         break;
         case "onConnect":
           this.setState({color: data.color})

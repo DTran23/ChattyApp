@@ -18,7 +18,9 @@ class Message extends Component {
     
     } else {
       return (
-          <div className="message system">{this.props.message.content}</div>
+          <div className="message system">
+            <p>{this.props.message.content}</p>
+          </div>
       );
     }
   }

@@ -36,7 +36,7 @@ wss.on("connection", ws => {
   //broadcast client count to all users
   wss.clients.forEach(function each(client) {
     if (client.readyState === WebSocket.OPEN) {
-      client.send(JSON.stringify({count: connectionCount, type: "clientCount"}))
+      client.send(JSON.stringify({count: connectionCount, type: "clientCount", currentUser: `Guest${connectionCount}`, content: `Guest${connectionCount} has entered the room.`}))
     }
   })
   
