@@ -1,5 +1,5 @@
 {
-  "name": "Chatty App",
+  "name": "react-boiler-plate",
   "version": "1.0.0",
   "description": "Chatty will allow users to communicate with each other without having to register accounts.",
   "scripts": {
