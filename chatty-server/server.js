@@ -46,7 +46,6 @@ wss.on("connection", ws => {
     parsedMessage.id = uuidv1();
 
     if(isImg.test(parsedMessage.content)) {
-      console.log("I'm an image")
       wss.clients.forEach(function each(client) {
         if (client.readyState === WebSocket.OPEN) {
           parsedMessage.imgURL = data.content;
@@ -58,7 +57,6 @@ wss.on("connection", ws => {
       
     wss.clients.forEach(function each(client) {
       if (client.readyState === WebSocket.OPEN) {
-        console.log("I'm a message")
         client.send(JSON.stringify(parsedMessage));
       }
       });

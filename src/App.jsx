@@ -24,15 +24,13 @@ class App extends Component {
     
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
+      const messages = this.state.messages.concat(data)
       switch(data.type) {
         case "incomingMessage":
-          console.log("I'm handling a message")
-          const message = this.state.messages.concat(data)
-          this.setState({currentUser: this.state.currentUser, messages: message})
+          this.setState({currentUser: this.state.currentUser, messages})
         break;
         case "incomingNotification":
-          const notification = this.state.messages.concat(data)
-          this.setState({messages: notification})
+          this.setState({messages})
         break;
         case "clientCount":
           this.setState({count: data.count});
@@ -41,9 +39,7 @@ class App extends Component {
           this.setState({color: data.color})
         break;
         case "imageLink":
-          console.log("I'm handling an image link")
-          console.log(data.content)
-            this.setState({messages: data.content})
+          this.setState({messages})
         break;
         default:
         // show an error in the console if the message type is unknown
