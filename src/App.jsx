@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ChatBar from './ChatBar.jsx';
 import NavBar from './NavBar.jsx';
 import MessageList from './MessageList.jsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 class App extends Component {

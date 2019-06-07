@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUsers } from "@fortawesome/free-solid-svg-icons";
+
 // import logo from './images/logo.png';
 
 class NavBar extends Component {
@@ -8,7 +11,10 @@ class NavBar extends Component {
         <div className="navbar-content">
         {/* <img src={logo} />; */}
         <a href="/" className="navbar-brand">Chatty</a>
-        <p>{`${this.props.count} Users Online`}</p>
+          <p>
+            <FontAwesomeIcon className="fa-icon" icon={faUsers} />
+            {`${this.props.count} Users Online`}
+          </p>
         </div>
         
       </div>
