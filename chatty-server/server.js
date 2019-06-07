@@ -31,7 +31,7 @@ wss.on("connection", ws => {
   let connectionCount = wss.clients.size;
 
   //on connection assign client a color
-  ws.send(JSON.stringify({color, type: "setColor"}))
+  ws.send(JSON.stringify({color, type: "onConnect"}))
   
   //broadcast client count to all users
   wss.clients.forEach(function each(client) {

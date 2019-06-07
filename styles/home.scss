@@ -1,39 +1,50 @@
 body {
-  background: white;
-  color: black;
+  background:#fef5f5;
+  color: #423f52;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   margin: 70px 0;
 }
 
 
 .chatbar {
   background: tomato;
-  border-top: 1px solid black;
+  // border-top: 1px solid black;
   bottom: 0;
   display: flex;
   left: 0;
-  padding: 5px;
+  padding: 20px;
   position: fixed;
   right: 0;
 }
 
 .chatbar-message,
 .chatbar-username {
-  border: 1px solid black;
+  // border: 1px solid black;
+  border-radius: 10px;
+  border-style: none;
   display: block;
   height: 40px;
   line-height: 40px;
   margin: 5px;
   padding: 0 9px;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .chatbar-message {
   flex: 8;
+  padding: 0 40px;
+  margin: 0 10px;
 }
 
 .chatbar-username {
   flex: 2;
+  padding: 0 40px;
+  margin: 0 10px;
+
 }
 
 .message {
@@ -50,11 +61,16 @@ body {
 .message-username {
   overflow: hidden;
   margin: 5px;
-  padding: 0 10px;
+  padding: 10px 40px;
 }
 
 .message-content {
-  flex: 8;
+  padding: 10px 40px 10px 20px;;
+  background-color: #fff;
+  border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  box-shadow: 7px 10px 15px -7px rgba(0,0,0,0.05);
+
 }
 
 .message-content-img {
@@ -63,16 +79,15 @@ body {
 }
 
 .message-username {
-  padding-right: 150px;
+  width: 200px;
   font-weight: 700;
 }
 
 .navbar {
   background: tomato;
-  border-bottom: 1px solid black;
   height: 60px;
   left: 0;
-  padding: 0 10px;
+  padding: 5px 40px;
   position: fixed;
   right: 0;
   top: 0;
@@ -81,9 +96,11 @@ body {
 
 .navbar-brand {
   color: inherit;
+  letter-spacing: 1px;
+  color: #fff;
   display: block;
   float: left;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 28px;
   height: 60px;
   line-height: 60px;
@@ -98,5 +115,6 @@ body {
   padding-right: 20px;
   p {
     font-size: 1.2rem;
+    color: #fff;
   }
 }

@@ -35,7 +35,7 @@ class App extends Component {
         case "clientCount":
           this.setState({count: data.count});
         break;
-        case "setColor":
+        case "onConnect":
           this.setState({color: data.color})
         break;
         case "imageLink":
