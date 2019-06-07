@@ -39,7 +39,7 @@ class App extends Component {
           this.setState({color: data.color})
         break;
         case "imageLink":
-          this.setState({messages})
+            this.setState({messages})
         break;
         default:
         // show an error in the console if the message type is unknown

@@ -54,6 +54,7 @@ wss.on("connection", ws => {
         if (client.readyState === WebSocket.OPEN) {
           parsedMessage.type = "imageLink";
           client.send(JSON.stringify({parsedMessage}))
+        
         }
       })
     }
