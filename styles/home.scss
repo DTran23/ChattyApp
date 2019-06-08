@@ -1,6 +1,6 @@
 body {
-  background:#fef5f5;
-  color: #423f52;
+  background:#383053;
+  color: #16122a;
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   margin: 70px 0;
@@ -9,13 +9,14 @@ body {
 
 
 .chatbar {
-  background: tomato;
+  background: #282340;
   // border-top: 1px solid black;
   bottom: 0;
   display: flex;
   left: 0;
-  padding: 20px;
+  padding: 20px 50px;
   position: fixed;
+  display: flex;
   right: 0;
   height: 40px;
 }
@@ -23,7 +24,6 @@ body {
 .chatbar-message,
 .chatbar-username {
   // border: 1px solid black;
-  border-radius: 10px;
   border-style: none;
   display: block;
   height: 40px;
@@ -39,15 +39,34 @@ body {
 
 .chatbar-message {
   flex: 8;
-  padding: 0 40px;
-  margin: 0 10px;
+  padding: 1px 40px;
+  margin: 0 0px;
+  border-radius: 0 10px 10px 0;
 }
 
 .chatbar-username {
-  flex: 2;
-  padding: 0 40px;
-  margin: 0 10px;
+  border-radius: 0 10px 10px 0;
+  flex: 1.5;
+  font-weight: 700;
+  text-align: center;
+  padding: 0 0px;
+  margin: 0 10px 0 0;
+  border: 1px solid #8a81fc;
+  color: #fff;
+  background-color:transparent;
 
+}
+
+.fa-user, .fa-keyboard {
+  padding: 6px 10px;
+  border-radius: 10px 0px 0px 10px;
+  font-size: 30px;
+  background-color: #8a81fc;
+  color: #d0cdff;
+}
+
+.fa-keyboard {
+  margin-left: 40px;
 }
 
 .message {
@@ -56,17 +75,23 @@ body {
 }
 
 .message.system {
+  text-align: center;
   font-size: 12px;
   font-style: italic;
   line-height: 1.5em;
+  border-radius: 7px;
   width: 15%;
-  padding: 0 50px;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  padding: 5px 0px;
+  // border: 1px solid tomato;
+  background-color: tomato;
 
   p {
-    background-color: tomato;
-    border-radius: 15px;
-    padding: 5px 10px;
-    color: #fff;
+    margin: 0 0;
+    border-radius: 10px 30px 30px 10px;
+    color: #ffffff;
+    width: 100%;
   }
 }
 
@@ -74,12 +99,12 @@ body {
 .message-username {
   overflow: hidden;
   margin: 5px;
-  padding: 10px 40px;
+  padding: 10px 0px;
 }
 
 .message-content {
   padding: 10px 40px 10px 20px;;
-  background-color: #fff;
+  background-color: #e5e2fd;
   border-radius: 10px;
   border-bottom-left-radius: 0px;
   box-shadow: 7px 10px 15px -7px rgba(0,0,0,0.05);
@@ -112,12 +137,16 @@ body {
 
 
 .message-username {
-  width: 10%;
+  margin-left: 45px;
+  margin-right: 45px;
+  border-radius: 10px;
+  text-align: center;
+  width: 15%;
   font-weight: 700;
 }
 
 .navbar {
-  background: tomato;
+  background: #282340;
   height: 60px;
   left: 0;
   padding: 5px 40px;
@@ -155,5 +184,6 @@ body {
   .fa-icon {
     padding-right: 15px;
     font-size: 24px;
+    color: #8a81fc;
   }
 }
