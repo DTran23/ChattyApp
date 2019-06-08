@@ -12,6 +12,7 @@ class ChatBar extends Component {
           onKeyPress={this.props.usernameOnKeyPress}
           defaultValue={this.props.currentUser}
           placeholder="Your Name (Optional)"
+          maxLength="12"
         />
 
         <FontAwesomeIcon className="fa-keyboard" icon={faKeyboard} />
@@ -19,6 +20,7 @@ class ChatBar extends Component {
           className="chatbar-message"
           onKeyPress={this.props.messageOnKeyPress}
           placeholder="Type a message and hit ENTER"
+          maxLength="300"
         />
       </div>
     );
