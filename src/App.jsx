@@ -16,6 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    
     /* SOCKET SERVER HANDLING
     | ========================================================================== */
     const socket = new WebSocket("ws://localhost:3001/");
