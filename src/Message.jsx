@@ -15,10 +15,9 @@ class Message extends Component {
     } else if (this.props.message.type === "imageLink") {
       return (
         <div className="message">
-          <span className="message-username" style={{color: this.props.message.color}}>{this.props.message.username}</span>
-          <span
-            className="message-content" 
-            style={{color:this.props.message.color}}>
+          <span className="message-username" 
+            style={{backgroundColor: this.props.message.color}}>{this.props.message.username}</span>
+          <span className="message-content">
               <div className="message-content-container">{this.props.message.content}</div>
               <div className="message-content-img-notification">
                 Attachment
