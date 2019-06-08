@@ -1,5 +1,5 @@
-// server.js
-
+/* EXPRESS SERVER
+| =================================================================================================== */
 const express = require("express");
 const WebSocket = require("ws");
 const SocketServer = require("ws").Server;
@@ -16,17 +16,21 @@ const server = express()
     console.log(`Listening on ${PORT}`)
   );
 
+/* WS SERVER
+| =================================================================================================== */
 // Create the WebSockets server
 const wss = new SocketServer({ server });
 
 /* HELPER VARIABLES AND FUNCTIONS
-| ========================================================================== */
+| ========================================================== */
 const colors = ["#5f27cd", "#ffbb01", "#ffbb01", "#0ccfba"];
 const generateColor = () => {
   let randomColor = Math.floor(Math.random() * colors.length);
   return colors[randomColor];
 };
 
+/* ON CONNECTION HANDLING
+| ========================================================== */
 wss.on("connection", ws => {
   const color = generateColor();
   let connectionCount = wss.clients.size;
@@ -54,6 +58,8 @@ wss.on("connection", ws => {
     }
   });
 
+/* ON MESSAGE HANDLING
+| ========================================================== */
   //handle message when recieve a message on the front end
   ws.on("message", data => {
     //check if image is a link
@@ -85,6 +91,8 @@ wss.on("connection", ws => {
     });
   });
 
+/* ON CLOSEHANDLING
+| ========================================================== */
   // Set up a callback for when a client closes the socket. This usually means they closed their browser.
   ws.on("close", () => {
     console.log("Client disconnected");
