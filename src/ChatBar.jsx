@@ -20,7 +20,7 @@ class ChatBar extends Component {
           className="chatbar-message"
           onKeyPress={this.props.messageOnKeyPress}
           placeholder="Type a message and hit ENTER"
-          maxLength="300"
+          maxLength="500"
         />
       </div>
     );
