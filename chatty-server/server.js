@@ -16,30 +16,44 @@ const server = express()
     console.log(`Listening on ${PORT}`)
   );
 
-  // Create the WebSockets server
+// Create the WebSockets server
 const wss = new SocketServer({ server });
 
-//Generate random color
-const colors = ["#5f27cd", "#ffbb01", "#ffbb01", "#0ccfba"]
+/* HELPER VARIABLES AND FUNCTIONS
+| ========================================================================== */
+const colors = ["#5f27cd", "#ffbb01", "#ffbb01", "#0ccfba"];
 const generateColor = () => {
-  let randomColor = Math.floor(Math.random() * colors.length)
-  return colors[randomColor]
-}
+  let randomColor = Math.floor(Math.random() * colors.length);
+  return colors[randomColor];
+};
 
 wss.on("connection", ws => {
   const color = generateColor();
   let connectionCount = wss.clients.size;
 
   //on connection assign client a color
-  ws.send(JSON.stringify({color, type: "onConnect", currentUser: `Guest${connectionCount}`}))
-  
+  ws.send(
+    JSON.stringify({
+      color,
+      type: "onConnect",
+      currentUser: `Guest${connectionCount}`
+    })
+  );
+
   //broadcast client count to all users
   wss.clients.forEach(function each(client) {
     if (client.readyState === WebSocket.OPEN) {
-      client.send(JSON.stringify({count: connectionCount, type: "clientCount", currentUser: `Guest${connectionCount}`, content: `Guest${connectionCount} has entered the room.`}))
+      client.send(
+        JSON.stringify({
+          count: connectionCount,
+          type: "clientCount",
+          currentUser: `Guest${connectionCount}`,
+          content: `Guest${connectionCount} has entered the room.`
+        })
+      );
     }
-  })
-  
+  });
+
   //handle message when recieve a message on the front end
   ws.on("message", data => {
     //check if image is a link
@@ -47,40 +61,40 @@ wss.on("connection", ws => {
     const parsedMessage = JSON.parse(data);
     //add random Id
     parsedMessage.id = uuidv1();
-    
+
     //if message contains an image link, broadcast message with type: "imageLink"
-    if(isImg.test(parsedMessage.content)) {
+    if (isImg.test(parsedMessage.content)) {
       wss.clients.forEach(function each(client) {
         //extract URL link and content
-        const imgURL = parsedMessage.content.match(isImg)[0]
-        const message = parsedMessage.content.replace(isImg, "")
+        const imgURL = parsedMessage.content.match(isImg)[0];
+        const message = parsedMessage.content.replace(isImg, "");
 
         if (client.readyState === WebSocket.OPEN) {
           parsedMessage.type = "imageLink";
           parsedMessage.imgURL = imgURL;
           parsedMessage.content = message;
-          client.send(JSON.stringify({parsedMessage}))
-        
+          client.send(JSON.stringify({ parsedMessage }));
         }
-      })
+      });
     }
     //broadcast message
     wss.clients.forEach(function each(client) {
       if (client.readyState === WebSocket.OPEN) {
         client.send(JSON.stringify(parsedMessage));
       }
-      });
+    });
   });
-    
-    
+
   // Set up a callback for when a client closes the socket. This usually means they closed their browser.
   ws.on("close", () => {
-  console.log("Client disconnected")
-  //broadcast decrement of client count
+    console.log("Client disconnected");
+    //broadcast decrement of client count
     wss.clients.forEach(function each(client) {
       if (client.readyState === WebSocket.OPEN) {
-        client.send(JSON.stringify({count: wss.clients.size, type: "onClose"}))
+        client.send(
+          JSON.stringify({ count: wss.clients.size, type: "onClose" })
+        );
       }
-    })
+    });
   });
 });

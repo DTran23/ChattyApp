@@ -1,27 +1,20 @@
-import React, {Component} from 'react';
-import Message from './Message.jsx';
-
-
-
+import React, { Component } from "react";
+import Message from "./Message.jsx";
 
 class MessageList extends Component {
   render() {
     const messages = this.props.messages.map(message => {
       return (
-        < Message 
-          key={message.id} 
-          message={message} 
+        <Message
+          key={message.id}
+          message={message}
           setColor={this.props.color}
-          imgURL = {this.props.imgURL}
+          imgURL={this.props.imgURL}
         />
       );
     });
 
-    return (
-      <div className="messages">
-        {messages}
-      </div>
-    );
+    return <div className="messages">{messages}</div>;
   }
 }
 
