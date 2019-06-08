@@ -72,13 +72,13 @@ wss.on("connection", ws => {
     if (isImg.test(parsedMessage.content)) {
       wss.clients.forEach(function each(client) {
         //extract URL link and content
-        const imgURL = parsedMessage.content.match(isImg)[0];
+        const imgURL = parsedMessage.content.match(isImg).slice(0, 1);
         const message = parsedMessage.content.replace(isImg, "");
+        parsedMessage.type = "imageLink";
+        parsedMessage.imgURL = imgURL;
+        parsedMessage.content = message;
 
         if (client.readyState === WebSocket.OPEN) {
-          parsedMessage.type = "imageLink";
-          parsedMessage.imgURL = imgURL;
-          parsedMessage.content = message;
           client.send(JSON.stringify({ parsedMessage }));
         }
       });

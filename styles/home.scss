@@ -8,6 +8,7 @@ body {
   font-size: 18px;
   margin: 70px 0;
   padding: 20px 0px;
+  box-sizing: border-box;
 }
 
 /* CHATBAR STYLES
@@ -19,9 +20,9 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 40px;
+  height: 60px;
   background: #282340;
-  padding: 25px 50px;
+  padding: 30px 60px;
 }
 
 .chatbar-message,
@@ -31,7 +32,7 @@ body {
   height: 40px;
   line-height: 40px;
   margin: 5px;
-  padding: 0px 9px;
+  padding: 10px 0px;
 
   &:focus {
     outline: none;
@@ -41,27 +42,30 @@ body {
 
 .chatbar-message {
   flex: 8;
-  padding: 1px 40px;
+  padding: 11px 20px;
   margin: 0px 0px;
   background-color: #e5e2fd;
   border-radius: 0px 10px 10px 0px;
 }
 
 .chatbar-username {
-  border-radius: 0 10px 10px 0;
-  flex: 2;
   font-weight: 700;
-  text-align: center;
-  padding: 0px 0px;
+  font-size: 22px;
+  padding: 10px 0px;
   margin: 0px 10px 0px 0px;
   border: 1px solid #8a81fc;
+  border-radius: 0px 10px 10px 0px;
   color: #fff;
+  text-align: center;
+  align-self: flex-start;
+  flex: 2.4;
+  min-width: 220px;
+  max-height: 40px;
   background-color:transparent;
-
 }
 
 .fa-user, .fa-keyboard {
-  padding: 6px 10px;
+  padding: 16px 16px;
   border-radius: 10px 0px 0px 10px;
   font-size: 30px;
   background-color: #8a81fc;
@@ -117,8 +121,12 @@ body {
 
 .message-content {
   word-wrap: break-word;
+  align-self: center;
+  font-size: 18px;
+  line-height: 1.5em;
   padding: 15px 20px;
   margin-right: 40px;
+  max-width: 67%;
   background-color: #e5e2fd;
   border-radius: 10px;
   border-bottom-left-radius: 0px;
@@ -152,16 +160,17 @@ body {
 
 
 .message-username {
-  padding: 15px 10px;
-  margin: 0px 45px;
+  font-weight: 700;
+  font-size: 24px;
+  padding: 15px 0px;
+  margin: 0px 47px;
   border-radius: 10px;
   color: #fff;
   text-align: center;
   align-self: flex-start;
-  width: 20%;
-  min-width: 150px;
-  max-height: 20px;
-  font-weight: 700;
+  width: 22.5%;
+  min-width: 270px;
+  max-height: 40px;
 }
 
 /* NAVBAR STYLES
@@ -171,7 +180,7 @@ body {
   background: #282340;
   height: 60px;
   left: 0;
-  padding: 5px 40px;
+  padding: 5px 50px;
   position: fixed;
   right: 0;
   top: 0;

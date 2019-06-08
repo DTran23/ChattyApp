@@ -13,7 +13,7 @@ class NavBar extends Component {
           </a>
           <p>
             <FontAwesomeIcon className="fa-users" icon={faUsers} />
-            {`${this.props.count} Users Online`}
+            {`${this.props.count} Online`}
           </p>
         </div>
       </div>
