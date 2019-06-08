@@ -32,42 +32,42 @@ class App extends Component {
 
       switch (data.type) {
         case "incomingMessage":
-          this.setState({ 
-            currentUser: this.state.currentUser, 
-            messages 
+          this.setState({
+            currentUser: this.state.currentUser,
+            messages
           });
-        break;
+          break;
 
         case "incomingNotification":
           this.setState({ messages });
-        break;
+          break;
 
         case "clientCount":
-          this.setState({ 
-            count: data.count, 
-            messages 
+          this.setState({
+            count: data.count,
+            messages
           });
-        break;
+          break;
         //on connection assign username as guest and set each user a color
         case "onConnect":
-          this.setState({ 
-            currentUser: data.currentUser, 
-            color: data.color 
+          this.setState({
+            currentUser: data.currentUser,
+            color: data.color
           });
-        break;
+          break;
         //on close decrement count
         case "onClose":
           this.setState({
             count: data.count
           });
-        break;
+          break;
         //handle image url and content message
         case "imageLink":
           this.setState({ imgURL: data.imgURL, messages });
-        break;
+          break;
         //throw error if unknown case
         default:
-        throw new Error("Unknown event type " + data.type);
+          throw new Error("Unknown event type " + data.type);
       }
     };
   }
@@ -91,7 +91,7 @@ class App extends Component {
 
   /* EVENT HANDLERS
     | ========================================================================== */
-  
+
   //send data to server on "Enter"
   messageKeyPressHandler = event => {
     if (event.key === "Enter") {
@@ -113,9 +113,11 @@ class App extends Component {
       const notificationJSON = JSON.stringify({
         type: "incomingNotification",
         username: this.state.currentUser,
-        content: `${this.state.currentUser} changed their name to ${event.target.value}`
+        content: `${this.state.currentUser} changed their name to ${
+          event.target.value
+        }`
       });
-      
+
       this.socket.send(notificationJSON);
       this.setState({ currentUser: event.target.value });
     }
