@@ -16,7 +16,8 @@ class Message extends Component {
           <span
             className="message-content" 
             style={{color:this.props.message.color}}>
-              <div>{this.props.message.content}</div>
+              <div className="message-content-container">{this.props.message.content}</div>
+              <div className="message-content-img-notification">Attachment</div>
               <img className="message-content-img" src={this.props.message.imgURL} />
           </span>
         </div>

@@ -51,7 +51,7 @@ wss.on("connection", ws => {
     //if message contains an image link, broadcast message with type: "imageLink"
     if(isImg.test(parsedMessage.content)) {
       wss.clients.forEach(function each(client) {
-        //extract URL link
+        //extract URL link and content
         const imgURL = parsedMessage.content.match(isImg)[0]
         const message = parsedMessage.content.replace(isImg, "")
 

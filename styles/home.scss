@@ -4,7 +4,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   margin: 70px 0;
-  padding-top: 20px;
+  padding: 20px 0px;
 }
 
 
@@ -89,7 +89,27 @@ body {
 .message-content-img {
   height: auto;
   max-width: 60vw;
+  margin-bottom: 20px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  // border: 1px solid #423f52;
+  background-color: #fefaee;
 }
+
+.message-content-img-notification {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 120px;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 10px;
+  background-color: tomato;
+}
+
+.message-content-container {
+  padding-bottom: 20px;
+}
+
 
 .message-username {
   width: 10%;
