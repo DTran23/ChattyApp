@@ -7,9 +7,8 @@ Once users are connected to the server. They can send messages, choose a usernam
 
 ## Screenshots
 ![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/main.png)
-![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/attach.png)
-![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/message.png)
-![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/final-message.png)
+![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/drizzy.png)
+![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/final.png)
 
 
 ## Getting Started
