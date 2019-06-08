@@ -20,7 +20,7 @@ const server = express()
 const wss = new SocketServer({ server });
 
 //Generate random color
-const colors = ["#3498db", "#c0392b", "#d35400", "#9b59b6"]
+const colors = ["#5f27cd", "#ee5253", "#10ac84", "#2e86de"]
 const generateColor = () => {
   let randomColor = Math.floor(Math.random() * colors.length)
   return colors[randomColor]
@@ -31,7 +31,7 @@ wss.on("connection", ws => {
   let connectionCount = wss.clients.size;
 
   //on connection assign client a color
-  ws.send(JSON.stringify({color, type: "onConnect"}))
+  ws.send(JSON.stringify({color, type: "onConnect", currentUser: `Guest${connectionCount}`}))
   
   //broadcast client count to all users
   wss.clients.forEach(function each(client) {
@@ -51,8 +51,14 @@ wss.on("connection", ws => {
     //if message contains an image link, broadcast message with type: "imageLink"
     if(isImg.test(parsedMessage.content)) {
       wss.clients.forEach(function each(client) {
+        //extract URL link
+        const imgURL = parsedMessage.content.match(isImg)[0]
+        const message = parsedMessage.content.replace(isImg, "")
+
         if (client.readyState === WebSocket.OPEN) {
           parsedMessage.type = "imageLink";
+          parsedMessage.imgURL = imgURL;
+          parsedMessage.content = message;
           client.send(JSON.stringify({parsedMessage}))
         
         }
@@ -71,10 +77,9 @@ wss.on("connection", ws => {
   ws.on("close", () => {
   console.log("Client disconnected")
   //broadcast decrement of client count
-  connectionCount = connectionCount - 1;
     wss.clients.forEach(function each(client) {
       if (client.readyState === WebSocket.OPEN) {
-        client.send(JSON.stringify({count: connectionCount, type: "clientCount"}))
+        client.send(JSON.stringify({count: wss.clients.size, type: "onClose"}))
       }
     })
   });

@@ -2,17 +2,17 @@ import React, {Component} from 'react';
 import ChatBar from './ChatBar.jsx';
 import NavBar from './NavBar.jsx';
 import MessageList from './MessageList.jsx';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: "", 
+      currentUser: "Guest", 
       messages: [],
       count: 0,
       color: "#2c3e50",
+      imgURL: ""
     }
   };
 
@@ -34,13 +34,17 @@ class App extends Component {
           this.setState({messages})
         break;
         case "clientCount":
-          this.setState({currentUser: data.currentUser, count: data.count, messages});
+          this.setState({count: data.count, messages});
         break;
         case "onConnect":
-          this.setState({color: data.color})
+          this.setState({currentUser: data.currentUser, color: data.color})
+        break;
+        case "onClose":
+          this.setState({currentUser: this.state.currentUser, count: data.count})
         break;
         case "imageLink":
-            this.setState({messages})
+          console.log(data.imgURL)
+          this.setState({imgURL: data.imgURL, messages})
         break;
         default:
         // show an error in the console if the message type is unknown

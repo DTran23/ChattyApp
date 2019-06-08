@@ -8,7 +8,12 @@ class MessageList extends Component {
   render() {
     const messages = this.props.messages.map(message => {
       return (
-        < Message key={message.id} message={message} setColor={this.props.color}/>
+        < Message 
+          key={message.id} 
+          message={message} 
+          setColor={this.props.color}
+          imgURL = {this.props.imgURL}
+        />
       );
     });
 
