@@ -6,7 +6,7 @@ A single page Chat application built with React and WebSockets.
 Once users are connected to the server. They can send messages, choose a username or remain anonymous, view number of users online and send each other images via hyperlinks.
 
 ## Screenshots
-![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/logon.png)
+![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/main.png)
 ![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/attach.png)
 ![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/message.png)
 ![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/final-message.png)
