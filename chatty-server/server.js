@@ -20,7 +20,7 @@ const server = express()
 const wss = new SocketServer({ server });
 
 //Generate random color
-const colors = ["#5f27cd", "#ee5253", "#10ac84", "#2e86de"]
+const colors = ["#5f27cd", "#ffbb01", "#ffbb01", "#0ccfba"]
 const generateColor = () => {
   let randomColor = Math.floor(Math.random() * colors.length)
   return colors[randomColor]

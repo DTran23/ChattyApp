@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFlag} from "@fortawesome/free-solid-svg-icons";
+
 
 class Message extends Component {
   render() {
@@ -17,17 +20,24 @@ class Message extends Component {
             className="message-content" 
             style={{color:this.props.message.color}}>
               <div className="message-content-container">{this.props.message.content}</div>
-              <div className="message-content-img-notification">Attachment</div>
+              <div className="message-content-img-notification">
+                Attachment
+              </div>
               <img className="message-content-img" src={this.props.message.imgURL} />
           </span>
         </div>
     );
     
-    } else {
-      return (
-          <div className="message system">
-            <p>{this.props.message.content}</p>
+  } else {
+    return (
+      <div className="message-system-container">
+        <div className="message system">
+          <div className="message-system-flag">
+                <FontAwesomeIcon className="fa-flag" icon={faFlag} />
           </div>
+          <p>{this.props.message.content}</p>
+        </div>
+      </div> 
       );
     }
   }
