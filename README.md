@@ -1,45 +1,34 @@
-React Boilerplate
+ChattyApp
 =====================
 
-A minimal and light dev environment for ReactJS.
+A single page Chat application built with React and WebSockets.
 
-### Usage
+Once users are connected to the server. They can send messages, choose a username or remain anonymous, view number of users online and send each other images via hyperlinks.
 
-Clone the boilerplate and create your own git repo.
+## Screenshots
+![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/logon.png)
+![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/attach.png)
+![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/message.png)
+![screenshot description"](https://github.com/DTran23/ChattyApp/blob/master/docs/final-message.png)
 
-```
-git clone git@github.com:lighthouse-labs/react-simple-boilerplate.git
-cd react-simple-boilerplate
-git remote rm origin
-git remote add origin [YOUR NEW REPOSITORY]
-# Manually update your package.json file
-```
 
-Install the dependencies and start the server.
+## Getting Started
+> Note: You must `npm install` dependencies for both chatty-server and chatty-app folders.
 
-```
-npm install
-npm start
-open http://localhost:3000
-```
+1. Download or clone this repo
+2. CD into `chatty-server` and `chatty-app` folders to `npm install` dependencies for both.
+3. CD into `chatty-server` and start the web server using the `npm start` command. The server will be served at <http://localhost:3001/>.
+4. CD into `chatty-app` and start the app using the `npm start` command. The app will be served at <http://localhost:3000/>.
+4. Go to <http://localhost:3000/> in your browser.
 
-### Static Files
 
-You can store static files like images, fonts, etc in the `build` folder.
-
-For example, if you copy a file called my_image.png into the build folder you can access it using `http://localhost:3000/build/my_image.png`.
-
-### Linting
-
-This boilerplate project includes React ESLint configuration.
-
-```
-npm run lint
-```
-
-### Dependencies
+## Dependencies
 
 * React
 * Webpack
-* [babel-loader](https://github.com/babel/babel-loader)
-* [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
+* babel-loader
+* webpack-dev-server
+* Fontawesome
+* WebSockets
+* UUID
+* Express
