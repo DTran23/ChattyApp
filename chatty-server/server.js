@@ -76,7 +76,7 @@ wss.on("connection", ws => {
       wss.clients.forEach(function each(client) {
         
         if (client.readyState === WebSocket.OPEN) {
-          parsedMessage.type = "imageLink";
+          parsedMessage.type = "incomingImageLink";
           parsedMessage.imgURL = imgURL;
           parsedMessage.content = message;
           client.send(JSON.stringify({ parsedMessage }));

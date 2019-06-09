@@ -18,7 +18,7 @@ class Message extends Component {
         </div>
       );
     //if type is "imageLink" handle message that includes an image url
-    } else if (this.props.message.type === "imageLink") {
+    } else if (this.props.message.type === "incomingImageLink") {
       return (
         <div className="message">
           <span

@@ -59,25 +59,12 @@ class App extends Component {
           break;
         //on close decrement count
         case "onClose":
-
-          console.log(this.state.currentUser)
-          data.content = `${this.state.currentUser} has left the room.`;
           this.setState({
-            count: data.count,
-            messages: this.state.messages.concat(data),
-            currentUser: this.state.currentUser
-          });
-          console.log(this.state.currentUser)
-
-          break;
-        case "leftChatroom":
-          this.setState({
-            // currentUser: data.currentUser,
-            messages
+            count: data.count
           });
           break;
         //handle image url and content message
-        case "imageLink":
+        case "incomingImageLink":
           this.setState({ imgURL: data.imgURL, messages });
           break;
         //throw error if unknown case
@@ -110,7 +97,6 @@ class App extends Component {
   //send data to server on "Enter"
   messageKeyPressHandler = event => {
     if (event.key === "Enter") {
-      console.log(this.statecurrentUser)
       const messageJSON = JSON.stringify({
         id: "",
         type: "incomingMessage",
