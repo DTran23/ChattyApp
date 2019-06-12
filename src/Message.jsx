@@ -4,7 +4,6 @@ import { faFlag } from "@fortawesome/free-solid-svg-icons";
 
 class Message extends Component {
   render() {
-    //if type is "incomingMessage" handle message 
     if (this.props.message.type === "incomingMessage") {
       return (
         <div className="message">
@@ -17,7 +16,6 @@ class Message extends Component {
           <span className="message-content">{this.props.message.content}</span>
         </div>
       );
-    //if type is "imageLink" handle message that includes an image url
     } else if (this.props.message.type === "incomingImageLink") {
       return (
         <div className="message">
@@ -39,7 +37,6 @@ class Message extends Component {
           </span>
         </div>
       );
-    //for all other cases inlcuding "incomingNotifications"
     } else {
       return (
         <div className="message-system-container">
