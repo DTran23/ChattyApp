@@ -96,12 +96,14 @@ class App extends Component {
 
   //send data to server on "Enter"
   messageKeyPressHandler = event => {
-    if (event.key === "Enter") {
+    const minChars = event.target.value;
+
+    if (event.key === "Enter" && minChars.length > 0) {
       const messageJSON = JSON.stringify({
         id: "",
         type: "incomingMessage",
         username: this.state.currentUser,
-        content: event.target.value,
+        content: minChars,
         color: this.state.color
       });
 
@@ -111,7 +113,8 @@ class App extends Component {
   };
   //send data to display usernamer changes
   usernameKeyPressHandler = event => {
-    if (event.key === "Enter") {
+    const minChars = event.target.value;
+    if (event.key === "Enter" && minChars.length > 0) {
       const notificationJSON = JSON.stringify({
         type: "incomingNotification",
         username: this.state.currentUser,
